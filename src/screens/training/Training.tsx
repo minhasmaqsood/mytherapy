@@ -7,8 +7,15 @@ const HomeScreen: FC<{}> = () => {
 
     return (
         <View style={styles.main}>
-            <HeaderComponent text={'Summary'} />
-         
+            <HeaderComponent text={'Training'} />
+            <View style={styles.container}>
+            <FlatList
+                    data={[1, 2, 3, 6, 5, 4, 4, 5]}
+                    renderItem={({ item }) => (<TrainingCard />)}
+                    showsVerticalScrollIndicator={false}
+                />
+                
+            </View>
         </View>
     )
 

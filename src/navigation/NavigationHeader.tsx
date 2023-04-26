@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, Text,Image } from 'react-native';
-const HeaderComponent = (props: any) => {
+const HeaderComponent = ({text}) => {
 
     return (
         <View
@@ -16,9 +16,7 @@ const HeaderComponent = (props: any) => {
             }}
         >
             <Image source={require('../../res/images/menu.png')} style={{height:18,width:20}} />
-            <Text style={{fontFamily: 'Poppins-Bold',color:'#fff',fontSize:14,lineHeight:21 }}>
-            Physical Activities
-            </Text>
+            <Text style={{fontFamily: 'Poppins-Bold',color:'#fff',fontSize:14,lineHeight:21 }}>{text}</Text>
             <Image source={require('../../res/images/bell.png')} style={{height:18,width:20}} />
 
         </View>
