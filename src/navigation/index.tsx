@@ -1,17 +1,18 @@
 import React, {FC} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeNavigator from './TabNavigator';
+import AppNavigator from './TabBar';
+
 export interface RootNavigatorProps {
   enableDrawer: boolean;
 }
 
-const RootNavigator: FC<RootNavigatorProps> = ({enableDrawer}) => {
-  const dispatch = useDispatch()
-
+const RootNavigator: FC<RootNavigatorProps> = () => {
   return (
-      <NavigationContainer>
-        <HomeNavigator/>
+    <>
+      <NavigationContainer >
+        <AppNavigator />
       </NavigationContainer>
+    </>
   );
 };
 
