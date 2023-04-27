@@ -3,11 +3,11 @@ import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, FlatList
 import TrainingCard from "../../components/TrainingCard";
 import HeaderComponent from "../../navigation/NavigationHeader";
 
-const Training: FC<{}> = () => {
+const Training: FC<{}> = ({navigation}) => {
 
     return (
         <View style={styles.main}>
-            <HeaderComponent text={'Training'} />
+            <HeaderComponent text={'Training'} navigation={navigation} />
             <View style={styles.container}>
             <FlatList
                     data={[1, 2, 3, 6, 5, 4, 4, 5]}

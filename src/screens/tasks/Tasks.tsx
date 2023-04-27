@@ -8,11 +8,11 @@ import User from '../../../res/images/user.svg'
 import Ball from '../../../res/images/ball.svg'
 import PinkMountain from '../../../res/images/pinkMountain.svg';
 
-const Tasks: FC<{}> = () => {
+const Tasks: FC<{}> = ({navigation}) => {
 
     return (
         <View style={styles.main}>
-            <HeaderComponent text={'My Task'} />
+            <HeaderComponent text={'My Task'} navigation={navigation} />
             <View style={styles.container}>
                 <Text style={styles.text}>Recommended Appointments</Text>
                 <View style={styles.appoinmentCard}>

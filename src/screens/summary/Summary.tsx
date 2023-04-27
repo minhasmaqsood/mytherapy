@@ -6,7 +6,7 @@ import {
     LineChart,
 } from "react-native-chart-kit";
 
-const HomeScreen: FC<{}> = () => {
+const HomeScreen: FC<{}> = ({navigation}) => {
     const [array, setArray] = useState([{ date: '2023/04/24', value: 75 }, { date: '2023/04/24', value: 75 }, { date: '2023/04/24', value: 75 }, { date: '2023/04/24', value: 75 }, { date: '2023/04/24', value: 75 }])
     const data = {
         labels: ["January", "February", "March", "April", "May", "June"],
@@ -21,7 +21,7 @@ const HomeScreen: FC<{}> = () => {
     };
     return (
         <View style={styles.main}>
-            <HeaderComponent text={'Summary'} />
+            <HeaderComponent text={'Summary'} navigation={navigation} />
             <View style={styles.container}>
                 <View style={styles.card}>
                     <Text style={styles.text}>Summary of Blood Oxygen Saturation (SpO2)</Text>

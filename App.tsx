@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import 'react-native-gesture-handler'
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import RootNavigator from './src/navigation/index';
 // const MyStatusBar = ({ backgroundColor, ...props }: any) => (

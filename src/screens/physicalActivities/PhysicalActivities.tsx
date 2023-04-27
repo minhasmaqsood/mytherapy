@@ -2,12 +2,12 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, FlatList } from "react-native";
 import ActivityCard from "../../components/ActivityCard";
 import HeaderComponent from "../../navigation/NavigationHeader";
-const PhysicalActivities: FC<{}> = () => {
+const PhysicalActivities: FC<{}> = ({navigation}) => {
     const [status, setStatus] = useState('active')
 
     return (
         <View style={styles.main}>
-            <HeaderComponent text={'Physical Activities'} />
+            <HeaderComponent text={'Physical Activities'} navigation={navigation} />
             <View style={styles.container}>
                 <Text style={styles.text}>Training Recommendations</Text>
                 <View style={styles.buttonView}>
