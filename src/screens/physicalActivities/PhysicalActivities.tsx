@@ -2,7 +2,6 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, FlatList } from "react-native";
 import ActivityCard from "../../components/ActivityCard";
 import HeaderComponent from "../../navigation/NavigationHeader";
-
 const PhysicalActivities: FC<{}> = () => {
     const [status, setStatus] = useState('active')
 

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, FlatList
 import TrainingCard from "../../components/TrainingCard";
 import HeaderComponent from "../../navigation/NavigationHeader";
 
-const HomeScreen: FC<{}> = () => {
+const Training: FC<{}> = () => {
 
     return (
         <View style={styles.main}>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
 
 
 });
-export default HomeScreen
+export default Training

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import RootNavigator from './src/navigation/TabBar';
+import RootNavigator from './src/navigation/index';
 // const MyStatusBar = ({ backgroundColor, ...props }: any) => (
 //   <View style={[styles.statusBar, { backgroundColor }]}>
 //     <SafeAreaView>

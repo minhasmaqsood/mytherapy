@@ -1,21 +1,25 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, Image } from "react-native";
-
+import Calendar from '../../res/images/calendar.svg'
+import Clock from '../../res/images/clock.svg'
+import Cycle from '../../res/images/cycle.svg'
+import Mode from '../../res/images/mode.svg'
+import Time from '../../res/images/time.svg'
 const ActivityCard: FC<{}> = ({status}:any) => {
     return (
         <View style={[styles.ActivityCard,{height:status=='completed'?123:69}]}>
             <View style={styles.imageView}>
-                <Image source={require('../../res/images/cycle.png')} style={styles.image} />
+                <Cycle/>
             </View>
             <View>
                 <Text style={styles.text}>Cycling</Text>
                 <View style={styles.bottom} >
                     <View style={styles.leftView}>
-                    <Image source={require('../../res/images/time.png')} style={styles.timeImage} />
+                        <Time/>
                     <Text style={styles.text1}>2 hours</Text>
                     </View>
                     <View style={[styles.leftView,{marginLeft:20}]}>
-                    <Image source={require('../../res/images/mode.png')} style={styles.timeImage} />
+                        <Mode/>
                     <Text style={styles.text1}>Moderate</Text>
                     </View>
                 </View>
@@ -23,11 +27,11 @@ const ActivityCard: FC<{}> = ({status}:any) => {
                 <>
                  <View style={styles.bottom} >
                  <View style={styles.leftView}>
-                 <Image source={require('../../res/images/calendar.png')} style={styles.timeImage} />
+                    <Calendar/>
                  <Text style={styles.text1}>2 hours</Text>
                  </View>
                  <View style={[styles.leftView,{marginLeft:20}]}>
-                 <Image source={require('../../res/images/clock.png')} style={styles.timeImage} />
+                    <Clock/>
                  <Text style={styles.text1}>Moderate</Text>
                  </View>
              </View>
@@ -104,6 +108,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-Regular',
         fontSize: 8,
         lineHeight: 13,
+        marginLeft:5
     },
     des:
     {
