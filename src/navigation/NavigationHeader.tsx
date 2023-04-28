@@ -2,7 +2,8 @@ import React from 'react';
 import { TouchableOpacity, View, Text, Image } from 'react-native';
 import Menu from '../../res/images/menu.svg';
 import Bell from '../../res/images/bell.svg'
-const HeaderComponent = ({ text,navigation }) => {
+import Back from '../../res/images/back.svg'
+const HeaderComponent = ({ text, navigation, flag }) => {
 
     return (
         <View
@@ -17,13 +18,18 @@ const HeaderComponent = ({ text,navigation }) => {
                 paddingTop: 36
             }}
         >
-            <TouchableOpacity onPress={()=>navigation?.openDrawer()}>
-            <Menu />
-            </TouchableOpacity>
+            {flag ?
+                <TouchableOpacity onPress={() => navigation?.goBack()}>
+                    <Back />
+                </TouchableOpacity> :
+                <TouchableOpacity onPress={() => navigation?.openDrawer()}>
+                    <Menu />
+                </TouchableOpacity>
+            }
             <Text style={{ fontFamily: 'Poppins-Bold', color: '#fff', fontSize: 14, lineHeight: 21 }}>{text}</Text>
-            <TouchableOpacity  onPress={()=>navigation?.navigate('Notifications')}>
-            <Bell />
-            <View style={{height:10,width:10,borderRadius:10,backgroundColor:'#92C146',position:'absolute',left:10}}></View>
+            <TouchableOpacity onPress={() => navigation?.navigate('Notifications')}>
+                <Bell />
+                <View style={{ height: 10, width: 10, borderRadius: 10, backgroundColor: '#92C146', position: 'absolute', left: 10 }}></View>
             </TouchableOpacity>
         </View>
     );
