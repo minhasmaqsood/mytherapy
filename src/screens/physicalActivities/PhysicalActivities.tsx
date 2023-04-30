@@ -2,8 +2,47 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, FlatList } from "react-native";
 import ActivityCard from "../../components/ActivityCard";
 import HeaderComponent from "../../navigation/NavigationHeader";
-const PhysicalActivities: FC<{}> = ({navigation}) => {
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+
+const PhysicalActivities: FC<{}> = ({ navigation }) => {
     const [status, setStatus] = useState('active')
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [array, setArray] = useState([{
+        selected: true,
+        flag: true,
+    },
+    {
+        selected: false,
+        flag: false,
+    },
+    {
+        selected: false,
+        flag: true,
+    }, {
+        selected: false,
+        flag: false,
+    },
+    {
+        selected: false,
+        flag: true,
+    }, {
+        selected: false,
+        flag: false,
+    }, {
+        selected: false,
+        flag: true,
+    }])
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        hideDatePicker();
+    };
 
     return (
         <View style={styles.main}>
@@ -18,6 +57,44 @@ const PhysicalActivities: FC<{}> = ({navigation}) => {
                         <Text style={styles.buttonText}>Completed</Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.calenView}>
+                    <Text style={styles.calenText}>
+                        Date Select
+                    </Text>
+                    <TouchableOpacity style={styles.pick} onPress={showDatePicker}>
+                        <Text style={styles.calenText}>
+                            pick Date
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <FlatList
+                    horizontal={true}
+                    data={array}
+                    renderItem={({ item,index }) => (<TouchableOpacity onPress={()=>{
+                        let arr=[...array]
+                        for(let i=0;i<arr.length;i++)
+                        {
+                            arr[i].selected=false
+
+                        }
+                        arr[index].selected=true
+                        setArray(arr)
+
+                    }}
+                    style={[styles.dateCard,{backgroundColor:item.selected?"#217DC1":'transparent'}]}>
+                        <Text style={[styles.day,{color:item.selected?'#fff':'black'}]}>Sat</Text>
+                        <Text style={[styles.date,{color:item.selected?'#fff':'black'}]}>May 26</Text>
+                        <View style={[styles.dateView,{backgroundColor:item.flag?'#92C146':'#B3B3B3'}]}></View>
+                    </TouchableOpacity>)}
+                    showsVerticalScrollIndicator={false}
+                />
+
+                <DateTimePickerModal
+                    isVisible={isDatePickerVisible}
+                    mode="date"
+                    onConfirm={handleConfirm}
+                    onCancel={hideDatePicker}
+                />
                 <FlatList
                     data={[1, 2, 3, 6, 5, 4, 4, 5]}
                     renderItem={({ item }) => (<ActivityCard status={status} />)}
@@ -66,7 +143,60 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-Medium',
         fontSize: 9,
         color: '#fff'
+    },
+    calenView:
+    {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 10,
+        alignItems: 'center'
+
+    },
+    calenText:
+    {
+        fontFamily: 'Poppins-SemiBold',
+        fontSize: 9,
+
+    },
+    pick:
+    {
+        height: 20,
+        width: '30%',
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    dateCard:
+    {
+        height: 80,
+        width: 40,
+        backgroundColor: "#217DC1",
+        alignItems: 'center',
+        marginLeft: 5,
+        paddingTop:7,
+        marginTop:10
+    },
+    day:
+    {
+        fontFamily: 'Poppins-Regular',
+        fontSize: 9,
+    },
+    date:
+    {
+        fontFamily: 'Poppins-Regular',
+        fontSize: 6,
+    },
+    dateView:
+    {
+        height: 22,
+        width: 22,
+        borderRadius: 30,
+        backgroundColor: 'grey',
+        marginTop: 3
     }
+
+
 
 
 });
