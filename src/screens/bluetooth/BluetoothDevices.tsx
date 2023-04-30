@@ -19,8 +19,6 @@ const BluetoothDevices: FC<{}> = ({ navigation }) => {
         { flag: false },
         { flag: false },
         { flag: false },
-        
-
     ])
     return (
         <View style={styles.main}>
@@ -38,15 +36,23 @@ const BluetoothDevices: FC<{}> = ({ navigation }) => {
                                     <TouchableOpacity style={[styles.check, {
                                         backgroundColor: '#217DC1', height: 16, width: 16,
                                         borderRadius: 3, alignItems: 'center', justifyContent: 'center'
-                                    }]}>
+                                    }]} onPress={() => {
+                                        let arr = [...array]
+                                        arr[index].flag = !arr[index].flag
+                                        setArray(arr)
+                                    }}>
                                         <Check />
                                     </TouchableOpacity>
                                     :
-                                    <TouchableOpacity style={styles.check}>
+                                    <TouchableOpacity style={styles.check} onPress={() => {
+                                        let arr = [...array]
+                                        arr[index].flag = !arr[index].flag
+                                        setArray(arr)
+                                    }}>
                                         <UnCheck />
                                     </TouchableOpacity> }
 
-                            <Slogo height={35} width={35} />
+                                    <Mcs height={30} width={30} />
                             <View style={{ marginLeft: 13 }}>
                                 <Text style={styles.cardText} >Bluetooth Device Name</Text>
                                 <Text style={[styles.cardText, { fontFamily: 'Poppins-Regular', fontSize: 8 }]} >Apple Iphone 14 Pro</Text>

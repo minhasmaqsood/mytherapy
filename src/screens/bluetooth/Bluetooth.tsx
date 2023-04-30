@@ -23,7 +23,7 @@ const Bluetooth: FC<{}> = ({ navigation }) => {
                     data={[1, 2, 3,]}
                     horizontal={true}
                     renderItem={({ item, index }) => (<View style={styles.card}>
-                        <Slogo />
+                <Mcs height={30} width={30} />
 
                         <Text style={styles.cardText} >Dr. Yolanda Joe</Text>
                     </View>)}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     top:
     {
-        height: '38s%',
+        height: '38%',
         width: '100%',
         backgroundColor: "#217DC1"
     },

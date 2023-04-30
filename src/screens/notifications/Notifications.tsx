@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, Animated, StyleSheet, StatusBar, FlatList } from "react-native";
 import HeaderComponent from "../../navigation/NavigationHeader";
 import Bell from '../../../res/images/bell.svg'
-const Goals: FC<{}> = ({ navigation }) => {
+const Notifications: FC<{}> = ({ navigation }) => {
 
     return (
         <View style={styles.main}>
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
 
 
 });
-export default Goals
+export default Notifications
